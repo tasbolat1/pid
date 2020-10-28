@@ -38,7 +38,7 @@ class PID_HELPER():
         self.command.rFR = 0 # Desired force: keep 0
 
         self.init_gripper()
-        #self.pub_pid_start.publish(Bool(data=1))
+        self.pub_pid_start.publish(Bool(data=0))
         # start with msg
         #rospy.Subscriber('talkPID', String, self.callbackPID)
 
