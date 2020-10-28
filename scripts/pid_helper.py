@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import rospy
 from biotac_sensors.msg import SignedBioTacHand
-from std_msgs.msg import Float64, Bool
+from std_msgs.msg import Float64, Bool, String
 from robotiq_2f_gripper_control.msg import _Robotiq2FGripper_robot_output as outputMsg
 from robotiq_2f_gripper_control.msg import _Robotiq2FGripper_robot_input  as inputMsg
 
@@ -38,7 +38,14 @@ class PID_HELPER():
         self.command.rFR = 0 # Desired force: keep 0
 
         self.init_gripper()
-        self.pub_pid_start.publish(Bool(data=1))
+        #self.pub_pid_start.publish(Bool(data=1))
+        # start with msg
+        #rospy.Subscriber('talkPID', String, self.callbackPID)
+
+    #def callbackPID(self, data):
+    #    if data.data == 'start':
+    #        self.pub_pid_start.publish(Bool(data=1))
+
 
     def getStatus(self, status):
         self.current_pos = status.gPO
